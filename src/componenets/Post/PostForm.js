@@ -20,7 +20,9 @@ import { Alert, InputAdornment, OutlinedInput } from "@mui/material";
 
 const linkStyle = {
   textDecoration: "none",
+  color: "white",
   color: "white"
+
 };
 
 function PostForm(props) {
