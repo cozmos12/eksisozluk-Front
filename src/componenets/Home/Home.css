@@ -1,0 +1,13 @@
+@keyframes neon-animation {
+    0% {
+      box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5);
+    }
+    50% {
+      box-shadow: 0px 0px 10px rgba(0, 0, 255, 0.5);
+    }
+    100% {
+      box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5) ;
+    }
+
+    
+  }
