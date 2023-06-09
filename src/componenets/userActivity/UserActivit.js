@@ -1,18 +1,20 @@
+
 import React, { useState, useEffect } from "react";
 import Container from '@mui/material/Container';
 import { Box, CssBaseline } from "@mui/material";
-import Post from "../Post/Post";
-import PostForm from "../Post/PostForm";
-import backgroundImage from "C:\\Users\\meki3\\OneDrive\\Belgeler\\javaspringbootprojeleri\\proje1\\quest-app\\src\\assets\\background-gfdc48b656_1280.jpg"
-import UserActivity from "../userActivity/UserActivit";
+import PostUser from "../Post/PostUser";
 
-function Home() {
+import backgroundImage from "C:\\Users\\meki3\\OneDrive\\Belgeler\\javaspringbootprojeleri\\proje1\\quest-app\\src\\assets\\background-gfdc48b656_1280.jpg"
+
+function UserActivity(props) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const {  userId } = props;
+
   const [postList, setPostList] = useState([]);
 
-  const refreshPosts = () => {
-    fetch("/post/findAllToDto")
+  const refreshUser = () => {
+    fetch("/post/findAllToDto?userId=" + userId)
     .then(res => res.json())
     .then(
         (result) => {
@@ -28,7 +30,7 @@ function Home() {
 }
 
 useEffect(() => {
-    refreshPosts()
+    refreshUser()
 }, [postList])
 
   if (error) {
@@ -83,21 +85,12 @@ useEffect(() => {
             }}
           >
 
-            <Box sx={{ mt: 5, mb: 20, marginLeft: 10 }}>
-
-
-              {localStorage.getItem("currentUser")==null ?"":
-              <PostForm userId={localStorage.getItem("currentUser")} userName={localStorage.getItem("userName")} refreshPost={refreshPosts} />
-
-
-}
-
               {postList.map((postItem, index) => (
                 <Box key={postItem.id} sx={{ width: "100%", mb: index !== postList.length - 1 ? 5 : 0 }}>
-                  <Post Like={postItem.likeOfNumber} postId={postItem.id} userId={postItem.userId} userName={postItem.userName} title={postItem.title} text={postItem.text} sx={{ width: 100, borderRadius: 10 }} />
+                  <PostUser Like={postItem.likeOfNumber} postId={postItem.id} userId={postItem.userId} userName={postItem.userName} title={postItem.title} text={postItem.text} sx={{ width: 100, borderRadius: 10 }} />
                 </Box>
               ))}
-            </Box>
+           
           </Container>
           <Box
             sx={{
@@ -115,4 +108,4 @@ useEffect(() => {
   }
 }
 
-export default Home;
+export default UserActivity;

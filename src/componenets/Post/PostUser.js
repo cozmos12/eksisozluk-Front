@@ -60,7 +60,7 @@ const ExpandMore = styled((props) => {
  
 }));
 
-function Post(props) {
+function PostUser(props) {
   const [expanded, setExpanded] = useState(false);
   const { title, text, userName, userId, postId,Like } = props;
   const [commentList, setCommentList] = useState([]);
@@ -186,6 +186,6 @@ export default function RecipeReviewCard(props) {
   const { title, text, userName, userId,postId,Like } = props;
 
   return (
-    <Post Like={Like} postId={postId} userId={userId} userName={userName.charAt(0).toUpperCase()} title={title} text={text} />
+    <PostUser Like={Like} postId={postId} userId={userId} userName={userName.charAt(0).toUpperCase()} title={title} text={text} />
   );
 }
