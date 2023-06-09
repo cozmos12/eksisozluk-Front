@@ -29,6 +29,7 @@ const handleRegister=()=>{
   setpassword("")
   console.log(localStorage.getItem("tokenKey"))
   console.log(userName)
+  Navigate("/")
 }
 
 

@@ -35,7 +35,7 @@ function PostForm(props) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": localStorage.getItem("tokenKey"),
+        "Authorization": "Bearer"+localStorage.getItem("tokenKey"),
       },
       body: JSON.stringify({
         title: title,
@@ -88,7 +88,7 @@ function PostForm(props) {
         </Alert>
       </Snackbar>
 
-      <Card sx={{ width: 800, textAlign: "left",    backdropFilter: "blur(10px)", // Blurred background effect
+      <Card sx={{ width: 800, textAlign: "left", // Blurred background effect
             backgroundColor: "rgba(255, 255, 255, 0.2)" ,borderRadius:4,boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.4)" }}>
         <CardHeader
           avatar={

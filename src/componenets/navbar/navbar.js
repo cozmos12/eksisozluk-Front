@@ -47,7 +47,7 @@ function Navbar() {
           <div>
             <IconButton >
             <LockOpen onClick={onClick}>
-
+ 
             </LockOpen>
           </IconButton>
           <Link to={{ pathname: '/user/' + localStorage.getItem("currentUser") }} style={linkStyle}>profile</Link> 
