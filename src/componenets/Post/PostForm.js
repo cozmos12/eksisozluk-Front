@@ -28,6 +28,7 @@ function PostForm(props) {
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const[isSend,setIsSent]=useState(false);
+  const[is]=useState(false);
 
   const savePost = () => {
     console.log(userId);
